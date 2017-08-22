@@ -16,6 +16,7 @@
 </template>
 
 <script>
+  import {urlParse} from './common/js/util'
   import VHeader from './components/header/header'
   const ERR_OK=0;
   export default {
@@ -24,18 +25,25 @@
     },
   data (){
       return{
-        seller:{},
+        seller:{
+          id:(()=>{
+            let queryParam=urlParse();
+            console.log(queryParam);
+            return queryParam.id;
+          })
+        },
         active:false
       }
   },
     created() {
-      this.$http.get('/api/seller').then((response)=>{
+      this.$http.get('/api/seller?id='+this.seller.id).then((response)=>{
         response=response.body;
       if(response.errno===0){
         this.seller=response.data;
-
+        this.seller = Object.assign({}, this.seller, response.data);
       }
-    })
+    });
+//      this.seller = data.seller;
     },
 
 }

@@ -60,7 +60,7 @@
   import BScroll from 'better-scroll'
   import  split from '../split/split'
   import ratingSelect from '../ratingselect/ratingselect'
-import star from '../star/star'
+  import star from '../star/star'
   import {formaDate} from '../../common/js/date'
     export default {
   components:{

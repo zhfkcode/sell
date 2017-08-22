@@ -47,7 +47,7 @@
             <ul v-if="seller.supports" class="supports">
               <li class="support-item" v-for="(item,index) in seller.supports">
                 <span class="icon">
-                  <icon :iconNum="seller.supports[index].type"></icon>
+                  <icon :iconNum="seller.supports[index].type" :iconType="2"></icon>
                 </span>
                 <span class="text">{{seller.supports[index].description}}</span>
               </li>
